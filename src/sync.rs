@@ -111,6 +111,18 @@ impl From<(r#impl::Terminal, ChildProcess, r#impl::TerminalIo)> for Terminal {
     }
 }
 
+impl AsRef<ChildProcess> for Terminal {
+    fn as_ref(&self) -> &ChildProcess {
+        &self.child_proc
+    }
+}
+
+impl AsMut<ChildProcess> for Terminal {
+    fn as_mut(&mut self) -> &mut ChildProcess {
+        &mut self.child_proc
+    }
+}
+
 impl Terminal {
     /// Splits the terminal into its input (`TerminalIn`) and output (`TerminalOut`) streams.
     ///
